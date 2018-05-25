@@ -13,6 +13,14 @@ namespace Foodtruck.Negocio
        
         private Banco banco = new Banco();
 
+        public Validacao RemoverLanche(Lanche lanche)
+        {
+            Validacao validacao = new Validacao();
+            banco.Lanches.Remove(lanche);
+            banco.SaveChanges();
+            return validacao;
+        }
+
         public Validacao RemoverCliente(Cliente cliente)
         {
             Validacao validacao = new Validacao();

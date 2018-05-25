@@ -41,6 +41,18 @@ namespace Foodtruck.Grafico
                     }
                 MessageBox.Show(mensagemValidacao);
             }
+            MessageBox.Show("Cadastro de lanche realizado");
+            this.Close();
+        }
+
+        private void ManterLanche_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

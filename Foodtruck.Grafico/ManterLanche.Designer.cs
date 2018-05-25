@@ -47,6 +47,7 @@
             this.btCancelar.TabIndex = 19;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
             // btSalvar
             // 
@@ -129,6 +130,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ManterLanche";
             this.Text = "ManterLanche";
+            this.Load += new System.EventHandler(this.ManterLanche_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
