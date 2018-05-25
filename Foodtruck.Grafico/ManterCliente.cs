@@ -72,7 +72,7 @@ namespace Foodtruck.Grafico
         {
             this.Close();
         }
-
+        
         private void ManterCliente_Shown(object sender, EventArgs e)
         {
             if(ClienteSelecionado != null)
