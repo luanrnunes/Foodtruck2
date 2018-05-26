@@ -18,13 +18,19 @@ namespace Foodtruck.Grafico
             InitializeComponent();
         }
 
-        private void btAdicionar_Click(object sender, EventArgs e)
+        private void AbreTelaInclusaoAlteracao(Lanche lancheSelecionado)
         {
             ManterLanche tela = new ManterLanche();
             tela.MdiParent = this.MdiParent;
+            tela.LancheSelecionado = lancheSelecionado;
             tela.FormClosed += Tela_FormClosed;
             tela.Show();
 
+        }
+
+        private void btAdicionar_Click(object sender, EventArgs e)
+        {
+            AbreTelaInclusaoAlteracao(null);
         }
 
         private void Tela_FormClosed(object sender, FormClosedEventArgs e)
@@ -54,7 +60,7 @@ namespace Foodtruck.Grafico
 
         private bool VerificarSelecao()
         {
-            if (VerificarSelecao())
+            if (dgLanches.SelectedRows.Count <= 0)
             {
                 MessageBox.Show("Selecione uma linha");
                 return false;
@@ -63,7 +69,7 @@ namespace Foodtruck.Grafico
         }
         private void btRemover_Click(object sender, EventArgs e)
         {
-           if (dgLanches.SelectedRows.Count <= 0)
+            if (VerificarSelecao());
             {
                 DialogResult resultado = MessageBox.Show("Tem certeza?", "Quer remover?", MessageBoxButtons.OKCancel);
                 if(resultado == DialogResult.OK)
@@ -90,7 +96,7 @@ namespace Foodtruck.Grafico
             if (VerificarSelecao())
             {
                 Lanche lancheSelecionado = (Lanche)dgLanches.SelectedRows[0].DataBoundItem;
-
+                AbreTelaInclusaoAlteracao(lancheSelecionado);
             }
                 
             }
